@@ -1,51 +1,38 @@
-public class Cipher
-{
-    public void Cipher(String input, boolean encode)
-    {
-        if encode == true
-        {
+public class Cipher {
+    public void Cipher(String input, boolean encode) {
+        if (encode) {
             public String plaintext = input;
             public String ciphertext;
         }
-        else
-        {
+        else{
             public String plaintext;
             public String ciphertext = input;
         }
         private String alphabet = "abcdefghijklmnopqrstuvwxyz";
         public String[] baseAlphabet = new String[25];
-        for (int i = 0, i < baseAlphabet.length, i++)
-        {
+        for (int i = 0, i < baseAlphabet.length, i++) {
             baseAlphabet[i] = alphabet[i];
         }
     }
 
-    public boolean charInAlphabet(char currentChar)
-    {
+    public boolean charInAlphabet(char currentChar) {
         private inAlphabet = false;
-        for (int i = 0, 1 < baseAlphabet.length, i++)
-        {
-            if baseAlphabet[i] == currentChar
-            {
+        for (int i = 0, 1 < baseAlphabet.length, i++) {
+            if baseAlphabet[i] == currentChar {
             inAlphabet = true;
             }
         }
-        if inAlphabet == true
-        {
+        if inAlphabet == true {
             return true;
         }
-        else if inAlphabet == false
-        {
+        else if inAlphabet == false {
             return false;
         }
     }
 
-    public int charIndexInAlphabet(char currentChar)
-    {
-        for (int i = 0, 1 < baseAlphabet.length, i++)
-        {
-            if baseAlphabet[i] == currentChar
-            {
+    public int charIndexInAlphabet(char currentChar) {
+        for (int i = 0, 1 < baseAlphabet.length, i++) {
+            if baseAlphabet[i] == currentChar {
                 public characterIndex = i;
             }
         }
@@ -54,55 +41,45 @@ public class Cipher
 }
 
 
-public class CipherWithStrKey extends Cipher
-{
-    public void CipherWithKey(String input, boolean encode, String strKey)
-    {
-    Super(input, encode);
-    public Sting key = strKey;
+public class CipherWithStrKey extends Cipher {
+    public void CipherWithKey(String input, boolean encode, String strKey) {
+        Super(input, encode);
+        protected Sting key = strKey;
     }
 }
 
 
-public class CipherWithIntKey extends Cipher
-{
-    public void CipherWithKey(String input, boolean encode, int intKey)
-    {
-    Super(input, encode);
-    public int key = intKey;
+public class CipherWithIntKey extends Cipher {
+    public void CipherWithKey(String input, boolean encode, int intKey) {
+        Super(input, encode);
+        public int key = intKey;
     }
 }
 
 
-public class Caesar extends CipherWithIntKey
-{
+public class Caesar extends CipherWithIntKey {
     //Constructor
     /**Thiṡ function is the only constructor. It goes up one level and has the same output values as the CipherWithIntKey has.*/
     public void Caesar(String input, boolean encode, int intKey)
     {
-        Super(input, encode, intKey);
+        super(input, encode, intKey);
     }
 
 
-    public String Encode(String input, int intKey)
-    {
+    public String Encode(String input, int intKey) {
         private String character
         private int index
         public String output = "";
-        for (int i = 0, i < input.length(), i++)
-        {
+        for (int i = 0, i < input.length(), i++) {
             char = input[i]
-            if charInAlphabet(character) == true
-            {
+            if charInAlphabet(character) == true {
                 index = charIndexInAlphabet(character)
-                if index > baseAlphabet.length-1
-                {
+                if index > baseAlphabet.length-1 {
                     index = (-1) * ()baseAlphabet.length - index);
                 }
                     output = output + baseAlphabet[index];
             }
-            else
-            {
+            else {
                 output = output + character;
             }
         ciphertext = output;
@@ -110,3 +87,7 @@ public class Caesar extends CipherWithIntKey
         }
     }
 }
+
+
+Caesar test = new Caesar("hello", true, 3);
+System.our.print(test);
